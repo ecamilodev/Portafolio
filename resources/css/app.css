@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   Base
+   ========================================================= */
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        @apply bg-ink-950 text-fog-200 font-sans antialiased selection:bg-violet-500/40 selection:text-white;
+        background-image:
+            radial-gradient(ellipse at top, rgba(139, 92, 246, 0.12), transparent 50%),
+            radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.10), transparent 50%);
+        background-attachment: fixed;
+    }
+
+    h1, h2, h3, h4 {
+        @apply font-display text-white tracking-tight;
+    }
+
+    /* Scrollbar oscura */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: #0a0a0f;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+        border-radius: 999px;
+    }
+}
+
+/* =========================================================
+   Componentes reutilizables
+   ========================================================= */
+@layer components {
+    /* Container limitado */
+    .container-app {
+        @apply mx-auto max-w-6xl px-6 lg:px-8;
+    }
+
+    /* Botón principal */
+    .btn-primary {
+        @apply inline-flex items-center gap-2 rounded-full
+               bg-gradient-to-r from-azure-500 to-violet-500
+               px-5 py-2.5 text-sm font-medium text-white
+               shadow-lg shadow-violet-500/20
+               transition hover:shadow-violet-500/40 hover:-translate-y-0.5;
+    }
+
+    /* Botón secundario (outline) */
+    .btn-ghost {
+        @apply inline-flex items-center gap-2 rounded-full
+               border border-white/10 bg-white/5 px-5 py-2.5
+               text-sm font-medium text-fog-200
+               transition hover:border-white/20 hover:bg-white/10;
+    }
+
+    /* Card con borde sutil iluminado */
+    .card {
+        @apply relative rounded-2xl border border-white/10 bg-ink-800/60
+               p-6 backdrop-blur-sm transition
+               hover:border-white/20 hover:bg-ink-800/80;
+    }
+
+    /* Etiqueta tipo "chip" */
+    .chip {
+        @apply inline-flex items-center rounded-full
+               border border-white/10 bg-white/5
+               px-3 py-1 text-xs font-mono text-fog-300;
+    }
+
+    /* Badge con acento azul */
+    .badge-azure {
+        @apply inline-flex items-center rounded-full
+               border border-azure-500/30 bg-azure-500/10
+               px-2.5 py-0.5 text-[11px] font-mono text-azure-400;
+    }
+
+    /* Badge con acento violeta */
+    .badge-violet {
+        @apply inline-flex items-center rounded-full
+               border border-violet-500/30 bg-violet-500/10
+               px-2.5 py-0.5 text-[11px] font-mono text-violet-400;
+    }
+
+    /* Título de sección */
+    .section-title {
+        @apply font-display text-3xl md:text-4xl font-semibold text-white;
+    }
+
+    /* Etiqueta pequeña antes del título de sección */
+    .section-eyebrow {
+        @apply font-mono text-xs uppercase tracking-[0.25em] text-azure-400;
+    }
+
+    /* Texto con gradiente azul → violeta */
+    .text-gradient {
+        @apply bg-gradient-to-r from-azure-400 via-violet-400 to-violet-500
+               bg-clip-text text-transparent;
+    }
+
+    /* Línea separadora con gradiente */
+    .hr-gradient {
+        @apply h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent;
+    }
+}
+
+/* =========================================================
+   Detalles visuales
+   ========================================================= */
+
+/* Patrón de cuadrícula sutil para fondos */
+.grid-pattern {
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+}
+
+/* Brillo decorativo */
+.glow-blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(80px);
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 0;
+}
