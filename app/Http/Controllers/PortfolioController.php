@@ -86,17 +86,17 @@ class PortfolioController extends Controller
     private function profileData(): array
     {
         return [
-            'name' => 'Eduard Camilo Sánchez García',
+            'name'       => 'Eduard Camilo Sánchez García',
             'short_name' => 'Camilo Sánchez',
-            'role' => 'Ingeniero de Sistemas · Desarrollador Backend & Full Stack',
-            'location' => 'Colombia (remoto)',
-            'summary' => 'Desarrollo soluciones digitales end-to-end: APIs robustas en Laravel, '
+            'role'       => 'Ingeniero de Sistemas · Desarrollador Backend & Full Stack',
+            'location'   => 'Colombia (remoto)',
+            'summary'    => 'Desarrollo soluciones digitales end-to-end: APIs robustas en Laravel, '
                 .'apps móviles con Flutter y experiencias web limpias. Actualmente trabajo en '
                 .'Steps Consulting Corp (Puerto Rico) liderando módulos de la plataforma de '
                 .'ride-sharing TIMI y participando en proyectos como Cuponex, ELSO.club y DeUna Marketing.',
-            'email' => env('CONTACT_EMAIL', 'ecsanchezg@example.com'),
-            'github' => env('GITHUB_URL', 'https://github.com/EduardDeUnaGlobal'),
-            'linkedin' => env('LINKEDIN_URL', '#'),
+            'email'    => 'sanchezeduard68@gmail.com',
+            'github'   => 'https://github.com/ecamilodev',
+            'linkedin' => 'https://www.linkedin.com/in/eduard-camilo-sanchez-garcia-651405335/',
         ];
     }
 
@@ -104,71 +104,65 @@ class PortfolioController extends Controller
     {
         return [
             [
-                'slug' => 'timi',
-                'name' => 'TIMI',
-                'tagline' => 'Plataforma de ride-sharing para Puerto Rico.',
+                'slug'        => 'timi',
+                'name'        => 'TIMI',
+                'tagline'     => 'Plataforma de ride-sharing para Puerto Rico.',
                 'description' => 'App móvil (Flutter) y backend (Laravel) con autenticación '
                     .'Firebase, Google Places, pagos con Stripe Connect (authorize/capture), '
                     .'publicación en Google Play y cumplimiento legal (Ley 109 PR).',
-                'stack' => ['Flutter', 'Laravel', 'Firebase', 'Stripe', 'Google Maps'],
-                'role' => 'Backend & Mobile Developer',
-                'year' => '2024 – Presente',
+                'stack'  => ['Flutter', 'Laravel', 'Firebase', 'Stripe', 'Google Maps'],
+                'role'   => 'Backend & Mobile Developer',
+                'year'   => '2024 – Presente',
                 'accent' => 'azure',
+                'url'    => 'https://timiweb.com/',
             ],
             [
-                'slug' => 'cuponex',
-                'name' => 'Cuponex',
-                'tagline' => 'Plataforma de cupones y promociones.',
+                'slug'        => 'cuponex',
+                'name'        => 'Cuponex',
+                'tagline'     => 'Plataforma de cupones y promociones.',
                 'description' => 'Sistema de gestión administrativa de carruseles, productos y '
                     .'campañas. CRUD completo, panel admin y frontend dinámico.',
-                'stack' => ['Laravel', 'MySQL', 'Blade', 'TailwindCSS'],
-                'role' => 'Full Stack Developer',
-                'year' => '2025',
+                'stack'  => ['Laravel', 'MySQL', 'Blade', 'TailwindCSS'],
+                'role'   => 'Full Stack Developer',
+                'year'   => '2025',
                 'accent' => 'violet',
+                'url'    => 'https://www.cuponex.net/',
             ],
             [
-                'slug' => 'elso-club',
-                'name' => 'ELSO.club',
-                'tagline' => 'Comunidad educativa con cursos y webinars.',
+                'slug'        => 'elso-club',
+                'name'        => 'ELSO.club',
+                'tagline'     => 'Comunidad educativa con cursos y webinars.',
                 'description' => 'Sitio WordPress con LearnDash, BuddyPress, Stripe y Vimeo. '
                     .'Auditoría de seguridad y estrategia de despliegue de webinars en YouTube Live / Zoom.',
-                'stack' => ['WordPress', 'LearnDash', 'Stripe', 'BuddyPress'],
-                'role' => 'Developer & Security Auditor',
-                'year' => '2024 – Presente',
+                'stack'  => ['WordPress', 'LearnDash', 'Stripe', 'BuddyPress'],
+                'role'   => 'Developer & Security Auditor',
+                'year'   => '2024 – Presente',
                 'accent' => 'azure',
+                'url'    => 'https://elso.club/',
             ],
             [
-                'slug' => 'deuna-marketing',
-                'name' => 'DeUna Marketing',
-                'tagline' => 'CRM y gestión de campañas.',
+                'slug'        => 'deuna-marketing',
+                'name'        => 'DeUna Marketing',
+                'tagline'     => 'CRM y gestión de campañas.',
                 'description' => 'Aplicación Laravel con plantillas HTML de correos transaccionales, '
                     .'flujos de planes y auditoría de seguridad (Livewire, Saloon).',
-                'stack' => ['Laravel', 'Livewire', 'MySQL', 'HTML Emails'],
-                'role' => 'Backend Developer & Auditor',
-                'year' => '2024 – Presente',
+                'stack'  => ['Laravel', 'Livewire', 'MySQL', 'HTML Emails'],
+                'role'   => 'Backend Developer & Auditor',
+                'year'   => '2024 – Presente',
                 'accent' => 'violet',
+                'url'    => 'https://deunamarketing.com/',
             ],
             [
-                'slug' => 'timi-isabela',
-                'name' => 'TiMi Isabela',
-                'tagline' => 'Sitio institucional + registro de comercios.',
+                'slug'        => 'timi-isabela',
+                'name'        => 'TiMi Isabela',
+                'tagline'     => 'Sitio institucional + registro de comercios.',
                 'description' => 'WordPress + Divi con formularios integrados vía Google Forms, '
                     .'sincronización de reseñas y tipografías personalizadas.',
-                'stack' => ['WordPress', 'Divi', 'Google Forms', 'Google Sheets'],
-                'role' => 'Web Developer',
-                'year' => '2024',
+                'stack'  => ['WordPress', 'Divi', 'Google Forms', 'Google Sheets'],
+                'role'   => 'Web Developer',
+                'year'   => '2024',
                 'accent' => 'azure',
-            ],
-            [
-                'slug' => 'unitutor',
-                'name' => 'UniTutor',
-                'tagline' => 'Proyecto de grado — plataforma de tutorías.',
-                'description' => 'Sistema desarrollado en Java + MySQL bajo metodología Scrum '
-                    .'con el equipo "Los Juniors". Documentación completa en GitLab Wiki.',
-                'stack' => ['Java', 'MySQL', 'Scrum'],
-                'role' => 'Full Stack Developer',
-                'year' => '2025',
-                'accent' => 'violet',
+                'url'    => 'https://timiisabela.com/',
             ],
         ];
     }
@@ -233,10 +227,30 @@ class PortfolioController extends Controller
     private function certificationsData(): array
     {
         return [
-            ['name' => 'Ingeniería de Sistemas', 'issuer' => 'Fundación Universitaria Los Libertadores', 'year' => '2025'],
-            ['name' => 'Laravel — Desarrollo backend', 'issuer' => 'Formación continua', 'year' => '2024'],
-            ['name' => 'Flutter & Firebase', 'issuer' => 'Formación continua', 'year' => '2024'],
-            ['name' => 'Stripe Connect Integration', 'issuer' => 'Documentación oficial + práctica', 'year' => '2025'],
+            [
+                'name'   => 'ISO 27001:2022 — Auditor Interno SGSI',
+                'issuer' => 'ACCIT · Grupo Élite Organizacional S.A.S',
+                'year'   => 'Oct 2025',
+                'hours'  => '32 h',
+                'img'    => 'img/certificados/Certificado-0C8C5B55E8A3C4C0856A.png',
+                'pdf'    => 'certificados/Certificado-0C8C5B55E8A3C4C0856A.pdf',
+            ],
+            [
+                'name'   => 'ISO 19011:2018 — Auditoría de Sistemas de Gestión',
+                'issuer' => 'ACCIT · Grupo Élite Organizacional S.A.S',
+                'year'   => 'Oct 2025',
+                'hours'  => '8 h',
+                'img'    => 'img/certificados/Certificado-1EB4505084D87118B8C7.png',
+                'pdf'    => 'certificados/Certificado-1EB4505084D87118B8C7.pdf',
+            ],
+            [
+                'name'   => 'ISO 27001:2022 — IA en Sistemas de Gestión de Seguridad',
+                'issuer' => 'ACCIT · Grupo Élite Organizacional S.A.S',
+                'year'   => 'Oct 2025',
+                'hours'  => '12 h',
+                'img'    => 'img/certificados/Certificado-B8B26F24186191C7AF8A.png',
+                'pdf'    => 'certificados/Certificado-B8B26F24186191C7AF8A.pdf',
+            ],
         ];
     }
 
@@ -244,16 +258,16 @@ class PortfolioController extends Controller
     {
         return [
             [
-                'name' => 'Claude (Claude Code)',
-                'use' => 'Asistente principal para desarrollo: refactor, generación de migraciones, debugging en Laravel y Flutter, y revisión de código en VS Code.',
+                'name' => 'Backend & APIs',
+                'use'  => 'PHP 8.2 · Laravel 11 · MySQL · Stripe Connect · Firebase Admin SDK · Sanctum · Saloon · REST APIs',
             ],
             [
-                'name' => 'ChatGPT',
-                'use' => 'Brainstorming de arquitectura, redacción de documentación y comparativas técnicas.',
+                'name' => 'Mobile & Cloud',
+                'use'  => 'Flutter · Dart · Firebase Auth / Firestore / Cloud Messaging · Google Maps API · Google Play Console',
             ],
             [
-                'name' => 'GitHub Copilot',
-                'use' => 'Autocompletado contextual durante el desarrollo diario.',
+                'name' => 'Frontend & DevOps',
+                'use'  => 'TailwindCSS · Alpine.js · Blade · JavaScript · Git · GitHub · HostGator · cPanel · VS Code · Claude Code',
             ],
         ];
     }

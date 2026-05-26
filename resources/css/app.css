@@ -16,7 +16,7 @@
         @apply bg-ink-950 text-fog-200 font-sans antialiased selection:bg-violet-500/40 selection:text-white;
         background-image:
             radial-gradient(ellipse at top, rgba(139, 92, 246, 0.12), transparent 50%),
-            radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.10), transparent 50%);
+            radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.08), transparent 50%);
         background-attachment: fixed;
     }
 
@@ -24,17 +24,25 @@
         @apply font-display text-white tracking-tight;
     }
 
-    /* Scrollbar oscura */
-    ::-webkit-scrollbar {
-        width: 10px;
-        height: 10px;
-    }
-    ::-webkit-scrollbar-track {
-        background: #0a0a0f;
-    }
+    /* Scrollbar refinada */
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0a0f; }
     ::-webkit-scrollbar-thumb {
         background: linear-gradient(180deg, #3b82f6, #8b5cf6);
         border-radius: 999px;
+    }
+
+    /* Estado inicial para animaciones de scroll — oculto hasta revelar */
+    [data-reveal] {
+        opacity: 0;
+        transform: translateY(32px);
+        transition:
+            opacity  0.8s cubic-bezier(0.22, 1, 0.36, 1),
+            transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    [data-reveal].revealed {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -42,75 +50,148 @@
    Componentes reutilizables
    ========================================================= */
 @layer components {
-    /* Container limitado */
+
+    /* Container */
     .container-app {
         @apply mx-auto max-w-6xl px-6 lg:px-8;
     }
 
-    /* Botón principal */
+    /* Botón principal — gradiente, sombra pronunciada */
     .btn-primary {
         @apply inline-flex items-center gap-2 rounded-full
                bg-gradient-to-r from-azure-500 to-violet-500
-               px-5 py-2.5 text-sm font-medium text-white
-               shadow-lg shadow-violet-500/20
-               transition hover:shadow-violet-500/40 hover:-translate-y-0.5;
+               px-6 py-3 text-sm font-semibold text-white
+               shadow-lg shadow-violet-500/25
+               transition-all duration-300
+               hover:shadow-xl hover:shadow-violet-500/45
+               hover:-translate-y-0.5;
     }
 
-    /* Botón secundario (outline) */
+    /* Botón ghost — outline refinado */
     .btn-ghost {
         @apply inline-flex items-center gap-2 rounded-full
-               border border-white/10 bg-white/5 px-5 py-2.5
-               text-sm font-medium text-fog-200
-               transition hover:border-white/20 hover:bg-white/10;
+               border border-white/15 bg-white/5
+               px-6 py-3 text-sm font-medium text-fog-200
+               transition-all duration-300
+               hover:border-white/30 hover:bg-white/10 hover:text-white;
     }
 
-    /* Card con borde sutil iluminado */
+    /* Card — borde, glass, sombra sutil en hover */
     .card {
         @apply relative rounded-2xl border border-white/10 bg-ink-800/60
-               p-6 backdrop-blur-sm transition
-               hover:border-white/20 hover:bg-ink-800/80;
+               p-7 backdrop-blur-sm
+               transition-all duration-300
+               hover:border-white/20 hover:bg-ink-800/80
+               hover:shadow-xl hover:shadow-violet-500/5;
     }
 
-    /* Etiqueta tipo "chip" */
+    /* Chip / tag */
     .chip {
         @apply inline-flex items-center rounded-full
                border border-white/10 bg-white/5
-               px-3 py-1 text-xs font-mono text-fog-300;
+               px-3 py-1 text-xs font-mono text-fog-300
+               transition-colors duration-200
+               hover:border-white/20 hover:text-fog-100;
     }
 
-    /* Badge con acento azul */
+    /* Badges */
     .badge-azure {
         @apply inline-flex items-center rounded-full
                border border-azure-500/30 bg-azure-500/10
                px-2.5 py-0.5 text-[11px] font-mono text-azure-400;
     }
-
-    /* Badge con acento violeta */
     .badge-violet {
         @apply inline-flex items-center rounded-full
                border border-violet-500/30 bg-violet-500/10
                px-2.5 py-0.5 text-[11px] font-mono text-violet-400;
     }
 
-    /* Título de sección */
+    /* Título de sección — más grande y editorial */
     .section-title {
-        @apply font-display text-3xl md:text-4xl font-semibold text-white;
+        @apply font-display text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight;
     }
 
-    /* Etiqueta pequeña antes del título de sección */
+    /* Eyebrow — label pequeña antes del título */
     .section-eyebrow {
-        @apply font-mono text-xs uppercase tracking-[0.25em] text-azure-400;
+        @apply font-mono text-[11px] uppercase tracking-[0.3em] text-azure-400;
     }
 
-    /* Texto con gradiente azul → violeta */
+    /* Gradiente de texto */
     .text-gradient {
         @apply bg-gradient-to-r from-azure-400 via-violet-400 to-violet-500
                bg-clip-text text-transparent;
     }
 
-    /* Línea separadora con gradiente */
+    /* Separador horizontal */
     .hr-gradient {
-        @apply h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent;
+        @apply h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent;
+    }
+
+    /* Nav link con underline animado */
+    .nav-link {
+        @apply relative pb-0.5 text-sm text-fog-300 transition-colors duration-200 hover:text-white;
+    }
+    .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 1px;
+        background: linear-gradient(90deg, #60a5fa, #a78bfa);
+        transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .nav-link:hover::after {
+        width: 100%;
+    }
+
+    /* Botón social circular */
+    .social-btn {
+        @apply inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full
+               border border-white/15 bg-white/5 text-fog-300
+               transition-all duration-300
+               hover:border-violet-500/50 hover:bg-violet-500/10 hover:text-white hover:-translate-y-0.5;
+    }
+    .social-btn--accent {
+        @apply border-violet-500/50 bg-violet-500/20 text-violet-300
+               hover:bg-violet-500/35 hover:border-violet-400 hover:text-white;
+    }
+
+    /* Stat card con borde acento y línea inferior gradiente */
+    .stat-card {
+        @apply rounded-2xl p-6 text-center bg-ink-800/80 border border-violet-500/20
+               relative overflow-hidden transition-all duration-300
+               hover:border-violet-500/40 hover:-translate-y-0.5;
+    }
+    .stat-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 15%;
+        right: 15%;
+        height: 2px;
+        background: linear-gradient(90deg, #60a5fa, #8b5cf6);
+        border-radius: 999px;
+    }
+
+    /* Decorador circular de sección */
+    .section-decorator {
+        @apply block h-3 w-3 rounded-full mx-auto mb-4;
+        background: linear-gradient(135deg, #60a5fa, #8b5cf6);
+    }
+
+    /* Fila de datos (About table) */
+    .data-row {
+        @apply flex items-center rounded-xl bg-ink-800/70 border border-white/5
+               px-5 py-3.5 gap-4 transition-colors duration-200
+               hover:border-white/10 hover:bg-ink-800/90;
+    }
+    .data-label {
+        @apply text-xs font-mono uppercase tracking-wider text-fog-500 flex-shrink-0;
+        width: 7.5rem;
+    }
+    .data-value {
+        @apply text-sm text-fog-200 font-medium min-w-0 break-words;
     }
 }
 
@@ -118,12 +199,12 @@
    Detalles visuales
    ========================================================= */
 
-/* Patrón de cuadrícula sutil para fondos */
+/* Patrón de cuadrícula sutil */
 .grid-pattern {
     background-image:
-        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-    background-size: 40px 40px;
+        linear-gradient(rgba(255, 255, 255, 0.028) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.028) 1px, transparent 1px);
+    background-size: 48px 48px;
     mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
 }
 
@@ -131,8 +212,8 @@
 .glow-blob {
     position: absolute;
     border-radius: 9999px;
-    filter: blur(80px);
-    opacity: 0.35;
+    filter: blur(100px);
+    opacity: 0.28;
     pointer-events: none;
     z-index: 0;
 }
