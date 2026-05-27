@@ -109,9 +109,15 @@
                     {{-- Borde gradiente --}}
                     <div class="absolute -inset-[3px] rounded-full bg-gradient-to-br from-violet-500/50 via-transparent to-azure-500/50 pointer-events-none"></div>
 
-                    <img src="{{ asset('img/perfil.png') }}"
-                         alt="Camilo Sánchez"
-                         class="relative w-52 md:w-60 lg:w-72 aspect-square object-cover object-top rounded-full border border-white/10 shadow-2xl">
+                    <picture>
+                        <source srcset="{{ asset('img/perfil.webp') }}" type="image/webp">
+                        <img src="{{ asset('img/perfil-opt.png') }}"
+                             alt="Camilo Sánchez"
+                             fetchpriority="high"
+                             loading="eager"
+                             decoding="sync"
+                             class="relative w-52 md:w-60 lg:w-72 aspect-square object-cover object-top rounded-full border border-white/10 shadow-2xl">
+                    </picture>
 
                     {{-- Letra "C" decorativa --}}
                     <div class="absolute -bottom-2 -right-2 h-12 w-12 rounded-full
@@ -188,9 +194,14 @@
                 <div class="relative">
                     <div class="absolute -inset-2 rounded-2xl bg-gradient-to-br from-violet-500/20 to-azure-500/20 blur-xl pointer-events-none"></div>
                     <div class="absolute -inset-px rounded-2xl bg-gradient-to-br from-violet-500/30 via-transparent to-azure-500/30 pointer-events-none"></div>
-                    <img src="{{ asset('img/perfil.png') }}"
-                         alt="Camilo Sánchez"
-                         class="relative w-40 sm:w-44 md:w-52 aspect-[3/4] object-cover object-top rounded-2xl border border-white/10 shadow-xl">
+                    <picture>
+                        <source srcset="{{ asset('img/perfil.webp') }}" type="image/webp">
+                        <img src="{{ asset('img/perfil-opt.png') }}"
+                             alt="Camilo Sánchez"
+                             loading="lazy"
+                             decoding="async"
+                             class="relative w-40 sm:w-44 md:w-52 aspect-[3/4] object-cover object-top rounded-2xl border border-white/10 shadow-xl">
+                    </picture>
                 </div>
             </div>
         </div>
@@ -402,11 +413,16 @@
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
             @foreach($certifications as $cert)
                 <div class="card !p-0 flex flex-col overflow-hidden" data-reveal>
-                    {{-- Vista previa PNG --}}
+                    {{-- Vista previa --}}
                     <div class="w-full overflow-hidden border-b border-white/10 bg-white/5">
-                        <img src="{{ asset($cert['img']) }}"
-                             alt="{{ $cert['name'] }}"
-                             class="w-full h-full object-contain">
+                        <picture>
+                            <source srcset="{{ asset(str_replace('.png', '.webp', $cert['img'])) }}" type="image/webp">
+                            <img src="{{ asset(str_replace('.png', '-opt.png', $cert['img'])) }}"
+                                 alt="{{ $cert['name'] }}"
+                                 loading="lazy"
+                                 decoding="async"
+                                 class="w-full h-full object-contain">
+                        </picture>
                     </div>
 
                     {{-- Info --}}

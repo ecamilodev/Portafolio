@@ -173,7 +173,7 @@ class PortfolioController extends Controller
             'Backend' => ['PHP', 'Laravel', 'MySQL', 'REST APIs', 'Stripe', 'Firebase Admin'],
             'Mobile' => ['Flutter', 'Dart', 'Firebase Auth', 'Google Maps', 'Play Console'],
             'Frontend' => ['HTML5', 'CSS3', 'TailwindCSS', 'JavaScript', 'Blade', 'Alpine.js'],
-            'DevOps & Tools' => ['Git', 'GitHub', 'VS Code', 'Claude Code', 'HostGator', 'Linux básico'],
+            'DevOps & Tools' => ['Git', 'GitHub', 'Claude Code', 'HostGator', 'Linux básico'],
             'Otros' => ['Scrum', 'Documentación técnica', 'Auditoría de seguridad', 'WordPress'],
         ];
     }
@@ -185,7 +185,7 @@ class PortfolioController extends Controller
                 'title' => 'Ingeniería de Sistemas',
                 'institution' => 'Fundación Universitaria Los Libertadores',
                 'period' => '— 2025',
-                'description' => 'Proyecto de grado: UniTutor (plataforma de tutorías académicas).',
+                'description' => 'Formación en ingeniería de sistemas con énfasis en desarrollo de software, arquitectura de aplicaciones y seguridad informática.',
             ],
             [
                 'title' => 'Formación complementaria',
@@ -267,7 +267,7 @@ class PortfolioController extends Controller
             ],
             [
                 'name' => 'Frontend & DevOps',
-                'use'  => 'TailwindCSS · Alpine.js · Blade · JavaScript · Git · GitHub · HostGator · cPanel · VS Code · Claude Code',
+                'use'  => 'TailwindCSS · Alpine.js · Blade · JavaScript · Git · GitHub · HostGator · cPanel · Claude Code',
             ],
         ];
     }
