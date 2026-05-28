@@ -6,6 +6,14 @@
    Base
    ========================================================= */
 @layer base {
+    :root {
+        --color-azure-400: theme('colors.azure.400');
+        --color-azure-500: theme('colors.azure.500');
+        --color-violet-400: theme('colors.violet.400');
+        --color-violet-500: theme('colors.violet.500');
+        --color-ink-950: theme('colors.ink.950');
+    }
+
     html {
         scroll-behavior: smooth;
     }
@@ -13,9 +21,8 @@
     body {
         @apply bg-ink-950 text-fog-200 font-sans antialiased selection:bg-violet-500/40 selection:text-white;
         background-image:
-            radial-gradient(ellipse at top, rgba(139, 92, 246, 0.12), transparent 50%),
-            radial-gradient(ellipse at bottom right, rgba(59, 130, 246, 0.08), transparent 50%);
-        background-attachment: fixed;
+            radial-gradient(ellipse at top, color-mix(in srgb, var(--color-violet-500) 12%, transparent), transparent 50%),
+            radial-gradient(ellipse at bottom right, color-mix(in srgb, var(--color-azure-500) 8%, transparent), transparent 50%);
     }
 
     h1, h2, h3, h4 {
@@ -24,9 +31,9 @@
 
     /* Scrollbar refinada */
     ::-webkit-scrollbar { width: 6px; height: 6px; }
-    ::-webkit-scrollbar-track { background: #0a0a0f; }
+    ::-webkit-scrollbar-track { background: theme('colors.ink.950'); }
     ::-webkit-scrollbar-thumb {
-        background: linear-gradient(180deg, #3b82f6, #8b5cf6);
+        background: linear-gradient(180deg, theme('colors.azure.500'), theme('colors.violet.500'));
         border-radius: 999px;
     }
 
@@ -62,7 +69,9 @@
                shadow-lg shadow-violet-500/25
                transition-all duration-300
                hover:shadow-xl hover:shadow-violet-500/45
-               hover:-translate-y-0.5;
+               hover:-translate-y-0.5
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500
+               focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950;
     }
 
     /* Botón ghost — outline refinado */
@@ -71,15 +80,17 @@
                border border-white/15 bg-white/5
                px-6 py-3 text-sm font-medium text-fog-200
                transition-all duration-300
-               hover:border-white/30 hover:bg-white/10 hover:text-white;
+               hover:border-white/30 hover:bg-white/10 hover:text-white
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500
+               focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950;
     }
 
-    /* Card — borde, glass, sombra sutil en hover */
+    /* Card */
     .card {
-        @apply relative rounded-2xl border border-white/10 bg-ink-800/60
-               p-7 backdrop-blur-sm
+        @apply relative rounded-2xl border border-white/10 bg-ink-800/75
+               p-7
                transition-all duration-300
-               hover:border-white/20 hover:bg-ink-800/80
+               hover:border-white/20 hover:bg-ink-800/90
                hover:shadow-xl hover:shadow-violet-500/5;
     }
 
@@ -114,12 +125,6 @@
         @apply font-mono text-[11px] uppercase tracking-[0.3em] text-azure-400;
     }
 
-    /* Gradiente de texto */
-    .text-gradient {
-        @apply bg-gradient-to-r from-azure-400 via-violet-400 to-violet-500
-               bg-clip-text text-transparent;
-    }
-
     /* Separador horizontal */
     .hr-gradient {
         @apply h-px w-full bg-gradient-to-r from-transparent via-white/10 to-transparent;
@@ -127,7 +132,8 @@
 
     /* Nav link con underline animado */
     .nav-link {
-        @apply relative pb-0.5 text-sm text-fog-300 transition-colors duration-200 hover:text-white;
+        @apply relative pb-0.5 text-sm text-fog-300 transition-colors duration-200 hover:text-white
+               focus-visible:outline-none focus-visible:text-white;
     }
     .nav-link::after {
         content: '';
@@ -136,10 +142,11 @@
         left: 0;
         width: 0;
         height: 1px;
-        background: linear-gradient(90deg, #60a5fa, #a78bfa);
+        background: linear-gradient(90deg, theme('colors.azure.400'), theme('colors.violet.400'));
         transition: width 0.3s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .nav-link:hover::after {
+    .nav-link:hover::after,
+    .nav-link:focus-visible::after {
         width: 100%;
     }
 
@@ -148,34 +155,19 @@
         @apply inline-flex h-11 w-11 flex-shrink-0 items-center justify-center rounded-full
                border border-white/15 bg-white/5 text-fog-300
                transition-all duration-300
-               hover:border-violet-500/50 hover:bg-violet-500/10 hover:text-white hover:-translate-y-0.5;
+               hover:border-violet-500/50 hover:bg-violet-500/10 hover:text-white hover:-translate-y-0.5
+               focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500
+               focus-visible:ring-offset-2 focus-visible:ring-offset-ink-950;
     }
     .social-btn--accent {
         @apply border-violet-500/50 bg-violet-500/20 text-violet-300
                hover:bg-violet-500/35 hover:border-violet-400 hover:text-white;
     }
 
-    /* Stat card con borde acento y línea inferior gradiente */
-    .stat-card {
-        @apply rounded-2xl p-6 text-center bg-ink-800/80 border border-violet-500/20
-               relative overflow-hidden transition-all duration-300
-               hover:border-violet-500/40 hover:-translate-y-0.5;
-    }
-    .stat-card::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 15%;
-        right: 15%;
-        height: 2px;
-        background: linear-gradient(90deg, #60a5fa, #8b5cf6);
-        border-radius: 999px;
-    }
-
     /* Decorador circular de sección */
     .section-decorator {
         @apply block h-3 w-3 rounded-full mx-auto mb-4;
-        background: linear-gradient(135deg, #60a5fa, #8b5cf6);
+        background: linear-gradient(135deg, theme('colors.azure.400'), theme('colors.violet.500'));
     }
 
     /* Fila de datos (About table) */
@@ -214,6 +206,7 @@
     opacity: 0.28;
     pointer-events: none;
     z-index: 0;
+    will-change: transform;
 }
 
 /* =========================================================
@@ -246,4 +239,16 @@
 /* Para que x-cloak funcione bien con Alpine */
 [x-cloak] {
     display: none !important;
+}
+
+/* =========================================================
+   Reduced motion
+   ========================================================= */
+@media (prefers-reduced-motion: reduce) {
+    .scanlines-overlay {
+        animation: none;
+    }
+    [data-reveal] {
+        transition: none;
+    }
 }

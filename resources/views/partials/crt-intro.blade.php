@@ -15,14 +15,14 @@
     <div x-ref="dot"
          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
                 rounded-full bg-white opacity-0"
-         style="width: 0; height: 0; box-shadow: 0 0 20px white, 0 0 40px #a78bfa;">
+         style="width: 0; height: 0; box-shadow: 0 0 20px white, 0 0 40px var(--color-violet-400);">
     </div>
 
     {{-- Línea horizontal que se expande --}}
     <div x-ref="hline"
          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
                 bg-white opacity-0"
-         style="width: 0; height: 0; box-shadow: 0 0 30px white, 0 0 60px #a78bfa;">
+         style="width: 0; height: 0; box-shadow: 0 0 30px white, 0 0 60px var(--color-violet-400);">
     </div>
 
     {{-- Flash blanco para los glitches --}}
@@ -69,6 +69,7 @@
             init() {
                 // Sólo se reproduce 1 vez por sesión
                 if (sessionStorage.getItem('crt_played')) return;
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
                 this.visible = true;
                 sessionStorage.setItem('crt_played', '1');

@@ -15,7 +15,7 @@
             @foreach($projects as $project)
                 <a href="{{ route('projects.show', $project['slug']) }}" class="card group block">
                     <div class="flex items-start justify-between mb-3">
-                        <h3 class="font-display text-2xl text-white group-hover:text-gradient transition">{{ $project['name'] }}</h3>
+                        <h3 class="font-display text-2xl text-white group-hover:text-violet-300 transition-colors duration-200">{{ $project['name'] }}</h3>
                         <span class="{{ $project['accent'] === 'azure' ? 'badge-azure' : 'badge-violet' }}">{{ $project['year'] }}</span>
                     </div>
                     <p class="text-sm text-fog-300 mb-3">{{ $project['tagline'] }}</p>

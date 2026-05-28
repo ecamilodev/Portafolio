@@ -25,7 +25,7 @@
                 <h1 class="font-display font-bold leading-[0.95] tracking-tight mb-7
                             text-6xl sm:text-7xl md:text-8xl lg:text-[7rem]">
                     <span class="text-white block">Camilo</span>
-                    <span class="text-gradient block">Sánchez</span>
+                    <span class="text-violet-300 block">Sánchez</span>
                 </h1>
 
                 {{-- Rol --}}
@@ -84,7 +84,7 @@
             <div class="flex justify-center items-center order-first md:order-last mb-6 md:mb-0">
                 <div class="relative">
                     {{-- Sunburst decorativo --}}
-                    <svg class="absolute pointer-events-none animate-spin"
+                    <svg class="absolute pointer-events-none motion-safe:animate-spin"
                          style="inset:-2rem;width:calc(100%+4rem);height:calc(100%+4rem);opacity:0.18;animation-duration:40s"
                          viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <line x1="100" y1="5"   x2="100" y2="195" stroke="url(#sr)" stroke-width="0.6"/>
@@ -97,9 +97,9 @@
                         <line x1="137" y1="14"  x2="63"  y2="186" stroke="url(#sr)" stroke-width="0.6"/>
                         <defs>
                             <linearGradient id="sr" x1="0" y1="0" x2="1" y2="1">
-                                <stop offset="0%"   stop-color="#60a5fa" stop-opacity="0"/>
-                                <stop offset="50%"  stop-color="#a78bfa"/>
-                                <stop offset="100%" stop-color="#60a5fa" stop-opacity="0"/>
+                                <stop offset="0%"   stop-color="var(--color-azure-400)" stop-opacity="0"/>
+                                <stop offset="50%"  stop-color="var(--color-violet-400)"/>
+                                <stop offset="100%" stop-color="var(--color-azure-400)" stop-opacity="0"/>
                             </linearGradient>
                         </defs>
                     </svg>
@@ -153,41 +153,43 @@
         <div class="grid md:grid-cols-[1fr_auto] gap-10 items-start mb-12">
 
             {{-- Tabla de datos --}}
-            <div class="space-y-3" data-reveal data-delay="80">
+            <dl class="space-y-3" data-reveal data-delay="80">
                 <div class="data-row">
-                    <span class="data-label">Rol</span>
-                    <span class="data-value">Backend & Full Stack Developer</span>
+                    <dt class="data-label">Rol</dt>
+                    <dd class="data-value">Backend & Full Stack Developer</dd>
                 </div>
                 <div class="data-row">
-                    <span class="data-label">Especialidad</span>
-                    <span class="data-value">Laravel · Flutter · APIs REST</span>
+                    <dt class="data-label">Especialidad</dt>
+                    <dd class="data-value">Laravel · Flutter · APIs REST</dd>
                 </div>
                 <div class="data-row">
-                    <span class="data-label">Empresa actual</span>
-                    <span class="data-value font-semibold text-violet-400">Steps Consulting Corp</span>
+                    <dt class="data-label">Empresa actual</dt>
+                    <dd class="data-value font-semibold text-violet-400">Steps Consulting Corp</dd>
                 </div>
                 <div class="data-row">
-                    <span class="data-label">Ubicación</span>
-                    <span class="data-value">Colombia — remoto</span>
+                    <dt class="data-label">Ubicación</dt>
+                    <dd class="data-value">Colombia · remoto</dd>
                 </div>
                 <div class="data-row">
-                    <span class="data-label">Email</span>
-                    <a href="mailto:{{ $profile['email'] }}"
-                       class="data-value text-azure-400 hover:text-azure-300 transition-colors duration-200">
-                        {{ $profile['email'] }}
-                    </a>
+                    <dt class="data-label">Email</dt>
+                    <dd class="data-value">
+                        <a href="mailto:{{ $profile['email'] }}"
+                           class="text-azure-400 hover:text-azure-300 transition-colors duration-200">
+                            {{ $profile['email'] }}
+                        </a>
+                    </dd>
                 </div>
                 <div class="data-row">
-                    <span class="data-label">Disponibilidad</span>
-                    <span class="data-value flex items-center gap-2">
-                        <span class="relative flex h-2 w-2 flex-shrink-0">
-                            <span class="absolute inline-flex h-full w-full rounded-full bg-azure-400 opacity-75 animate-ping"></span>
+                    <dt class="data-label">Disponibilidad</dt>
+                    <dd class="data-value flex items-center gap-2">
+                        <span class="relative flex h-2 w-2 flex-shrink-0" aria-hidden="true">
+                            <span class="absolute inline-flex h-full w-full rounded-full bg-azure-400 opacity-75 motion-safe:animate-ping"></span>
                             <span class="relative inline-flex rounded-full h-2 w-2 bg-azure-400"></span>
                         </span>
                         Abierto a nuevos proyectos
-                    </span>
+                    </dd>
                 </div>
-            </div>
+            </dl>
 
             {{-- Foto --}}
             <div class="flex justify-center" data-reveal data-delay="160">
@@ -206,23 +208,19 @@
             </div>
         </div>
 
-        {{-- Stat cards --}}
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-reveal data-delay="240">
-            <div class="stat-card">
-                <div class="font-display text-4xl font-bold text-white mb-2">4+</div>
-                <div class="text-xs font-mono uppercase tracking-[0.2em] text-fog-400">Años en tech</div>
+        {{-- Hechos --}}
+        <div class="border-t border-white/5" data-reveal data-delay="240">
+            <div class="flex gap-8 items-baseline py-5 border-b border-white/5">
+                <span class="font-display text-3xl font-bold text-white w-20 flex-shrink-0 tabular-nums">4+</span>
+                <span class="text-fog-300 text-sm">años en producción, plataformas reales con usuarios reales</span>
             </div>
-            <div class="stat-card">
-                <div class="font-display text-4xl font-bold text-white mb-2">5+</div>
-                <div class="text-xs font-mono uppercase tracking-[0.2em] text-fog-400">Proyectos clave</div>
+            <div class="flex gap-8 items-baseline py-5 border-b border-white/5">
+                <span class="font-display text-3xl font-bold text-white w-20 flex-shrink-0 tabular-nums">5+</span>
+                <span class="text-fog-300 text-sm">proyectos clave: e-commerce, apps móviles, APIs REST</span>
             </div>
-            <div class="stat-card">
-                <div class="font-display text-4xl font-bold text-white mb-2">2</div>
-                <div class="text-xs font-mono uppercase tracking-[0.2em] text-fog-400">Países (CO · PR)</div>
-            </div>
-            <div class="stat-card">
-                <div class="font-display text-4xl font-bold text-white mb-2">100%</div>
-                <div class="text-xs font-mono uppercase tracking-[0.2em] text-fog-400">Compromiso</div>
+            <div class="flex gap-8 items-baseline py-5">
+                <span class="font-display text-3xl font-bold text-violet-400 w-20 flex-shrink-0">CO·PR</span>
+                <span class="text-fog-300 text-sm">remoto; experiencia en Colombia y Puerto Rico</span>
             </div>
         </div>
 
@@ -332,7 +330,7 @@
                                     blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
                         <div class="relative flex items-start justify-between mb-4">
-                            <h3 class="font-display text-2xl text-white group-hover:text-gradient transition">
+                            <h3 class="font-display text-2xl text-white group-hover:text-violet-300 transition-colors duration-200">
                                 {{ $project['name'] }}
                             </h3>
                             <span class="{{ $project['accent'] === 'azure' ? 'badge-azure' : 'badge-violet' }}">
@@ -380,13 +378,10 @@
             </p>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="divide-y divide-white/5 border-t border-white/5">
             @foreach($skills as $category => $items)
-                <div class="card" data-reveal>
-                    <h3 class="font-display text-lg text-white mb-4 flex items-center gap-2">
-                        <span class="h-1.5 w-1.5 rounded-full bg-gradient-to-r from-azure-400 to-violet-500"></span>
-                        {{ $category }}
-                    </h3>
+                <div class="grid sm:grid-cols-[10rem_1fr] gap-x-10 gap-y-3 py-6 items-start" data-reveal>
+                    <h3 class="font-mono text-xs uppercase tracking-widest text-fog-500 pt-0.5">{{ $category }}</h3>
                     <div class="flex flex-wrap gap-2">
                         @foreach($items as $item)
                             <span class="chip">{{ $item }}</span>
@@ -414,7 +409,7 @@
             @foreach($certifications as $cert)
                 <div class="card !p-0 flex flex-col overflow-hidden" data-reveal>
                     {{-- Vista previa --}}
-                    <div class="w-full overflow-hidden border-b border-white/10 bg-white/5">
+                    <div class="w-full aspect-[16/9] overflow-hidden border-b border-white/10 bg-white/5">
                         <picture>
                             <source srcset="{{ asset(str_replace('.png', '.webp', $cert['img'])) }}" type="image/webp">
                             <img src="{{ asset(str_replace('.png', '-opt.png', $cert['img'])) }}"
@@ -469,15 +464,11 @@
             </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6">
+        <div class="divide-y divide-white/5 border-t border-white/5">
             @foreach($aiTools as $tool)
-                <div class="card relative overflow-hidden" data-reveal>
-                    <div class="absolute -top-10 -right-10 h-32 w-32 rounded-full bg-violet-500/10 blur-2xl"></div>
-                    <div class="relative">
-                        <div class="font-mono text-xs text-azure-400 mb-2">// stack</div>
-                        <h3 class="font-display text-xl text-white mb-3">{{ $tool['name'] }}</h3>
-                        <p class="text-sm text-fog-400 leading-relaxed">{{ $tool['use'] }}</p>
-                    </div>
+                <div class="grid sm:grid-cols-[1fr_2fr] gap-x-10 gap-y-2 py-8 items-start" data-reveal>
+                    <h3 class="font-display text-xl text-white">{{ $tool['name'] }}</h3>
+                    <p class="text-fog-400 text-sm leading-relaxed">{{ $tool['use'] }}</p>
                 </div>
             @endforeach
         </div>
@@ -546,25 +537,25 @@
                     @endif
 
                     <div>
-                        <label class="block text-xs font-mono uppercase tracking-wider text-fog-400 mb-2">Nombre</label>
-                        <input type="text" name="name" required
-                               class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-fog-500 focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 outline-none transition"
+                        <label for="contact-name" class="block text-xs font-mono uppercase tracking-wider text-fog-400 mb-2">Nombre</label>
+                        <input type="text" id="contact-name" name="name" required
+                               class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-fog-500 focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 outline-none transition-colors"
                                placeholder="Tu nombre">
                         @error('name') <p class="text-xs text-red-400 mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
-                        <label class="block text-xs font-mono uppercase tracking-wider text-fog-400 mb-2">Email</label>
-                        <input type="email" name="email" required
-                               class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-fog-500 focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 outline-none transition"
+                        <label for="contact-email" class="block text-xs font-mono uppercase tracking-wider text-fog-400 mb-2">Email</label>
+                        <input type="email" id="contact-email" name="email" required
+                               class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-fog-500 focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 outline-none transition-colors"
                                placeholder="tu@email.com">
                         @error('email') <p class="text-xs text-red-400 mt-1">{{ $message }}</p> @enderror
                     </div>
 
                     <div>
-                        <label class="block text-xs font-mono uppercase tracking-wider text-fog-400 mb-2">Mensaje</label>
-                        <textarea name="message" rows="4" required
-                                  class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-fog-500 focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 outline-none transition resize-none"
+                        <label for="contact-message" class="block text-xs font-mono uppercase tracking-wider text-fog-400 mb-2">Mensaje</label>
+                        <textarea id="contact-message" name="message" rows="4" required
+                                  class="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-fog-500 focus:border-violet-500/50 focus:ring-1 focus:ring-violet-500/30 outline-none transition-colors resize-none"
                                   placeholder="Cuéntame sobre tu proyecto..."></textarea>
                         @error('message') <p class="text-xs text-red-400 mt-1">{{ $message }}</p> @enderror
                     </div>

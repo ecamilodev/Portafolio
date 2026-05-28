@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portafolio profesional de Eduard Camilo Sánchez García — Ingeniero de Sistemas, desarrollador backend y full stack.">
+    <meta name="description" content="Portafolio profesional de Eduard Camilo Sánchez García, ingeniero de sistemas y desarrollador backend y full stack.">
     <meta name="theme-color" content="#0a0a0f">
 
     <title>@yield('title', 'Camilo Sánchez · Portafolio')</title>
@@ -22,6 +22,13 @@
 </head>
 <body class="min-h-screen flex flex-col">
 
+    <a href="#main-content"
+       class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200]
+              focus:rounded-lg focus:bg-ink-800 focus:border focus:border-violet-500/50
+              focus:px-4 focus:py-2 focus:text-sm focus:text-white focus:shadow-lg">
+        Saltar al contenido principal
+    </a>
+
     {{-- Efecto CRT de encendido (1 vez por sesión) --}}
     @include('partials.crt-intro')
 
@@ -30,7 +37,7 @@
 
     @include('partials.navbar')
 
-    <main class="flex-1 relative overflow-hidden">
+    <main id="main-content" class="flex-1 relative">
         @yield('content')
     </main>
 

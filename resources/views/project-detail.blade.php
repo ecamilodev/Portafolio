@@ -35,7 +35,7 @@
 
         <div class="card bg-ink-800/40">
             <p class="text-sm text-fog-400">
-                💡 <span class="text-white">Próximamente:</span> capturas de pantalla, demo en vivo y enlace al repositorio.
+                <span class="text-white">Próximamente:</span> capturas, demo en vivo y enlace al repositorio.
             </p>
         </div>
     </div>
