@@ -67,6 +67,8 @@
             visible: false,
 
             init() {
+                // CRT desactivado en tema claro
+                return;
                 // Sólo se reproduce 1 vez por sesión
                 if (sessionStorage.getItem('crt_played')) return;
                 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;

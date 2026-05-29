@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Portafolio profesional de Eduard Camilo Sánchez García, ingeniero de sistemas y desarrollador backend y full stack.">
-    <meta name="theme-color" content="#0a0a0f">
+    <meta name="theme-color" content="#faf6f1">
 
     <title>@yield('title', 'Camilo Sánchez · Portafolio')</title>
 
@@ -24,8 +24,8 @@
 
     <a href="#main-content"
        class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200]
-              focus:rounded-lg focus:bg-ink-800 focus:border focus:border-violet-500/50
-              focus:px-4 focus:py-2 focus:text-sm focus:text-white focus:shadow-lg">
+              focus:rounded-lg focus:bg-linen-200 focus:border focus:border-clay-600/40
+              focus:px-4 focus:py-2 focus:text-sm focus:text-linen-900 focus:shadow-md">
         Saltar al contenido principal
     </a>
 

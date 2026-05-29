@@ -22,7 +22,7 @@ export default {
                 mono: ['"JetBrains Mono"', ...defaultTheme.fontFamily.mono],
             },
             colors: {
-                // Paleta personalizada: negro, gris, blanco, azul, morado
+                // Paleta oscura (compatibilidad con otros archivos)
                 ink: {
                     950: '#0a0a0f',
                     900: '#0f1014',
@@ -48,6 +48,33 @@ export default {
                     500: '#8b5cf6',
                     600: '#7c3aed',
                     700: '#6d28d9',
+                },
+                // Paleta clara — tema "The First Conversation"
+                linen: {
+                    50:  '#fdfbf8',
+                    100: '#faf6f1',
+                    200: '#f0e9df',
+                    300: '#e4d9cd',
+                    400: '#c8b9a9',
+                    500: '#9a8a79',
+                    600: '#6e5d4c',
+                    700: '#4d3f32',
+                    800: '#362d22',
+                    900: '#1e1610',
+                    950: '#120e08',
+                },
+                clay: {
+                    50:  '#fdf3ee',
+                    100: '#fae0d0',
+                    200: '#f4bea0',
+                    300: '#ec9470',
+                    400: '#e06f44',
+                    500: '#cf5928',
+                    600: '#a0451e',
+                    700: '#823516',
+                    800: '#6b2b10',
+                    900: '#4f1f0a',
+                    950: '#2e1106',
                 },
             },
             backgroundImage: {

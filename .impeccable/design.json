@@ -1,0 +1,144 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-28T00:00:00Z",
+  "title": "Design System: Camilo Sánchez Portfolio",
+  "extensions": {
+    "colorMeta": {
+      "void-black":    { "role": "neutral",  "displayName": "Void Black",     "canonical": "oklch(0.06 0.005 293)",  "tonalRamp": ["#050508","#0a0a0f","#111118","#1a1a24","#262633","#363647","#4a4a60","#6060808"] },
+      "surface-raised":{ "role": "neutral",  "displayName": "Surface Raised", "canonical": "oklch(0.13 0.008 265)",  "tonalRamp": ["#0a0a0f","#0f1014","#16181f","#1f2129","#2a2d38","#373b4a","#464c60","#585f78"] },
+      "text-primary":  { "role": "neutral",  "displayName": "Text Primary",   "canonical": "oklch(0.91 0.01 225)",   "tonalRamp": ["#94a3b8","#a9b8cb","#bcc9d9","#cbd5e1","#d8e2ee","#e2e8f0","#edf1f6","#f8fafc"] },
+      "azure-bright":  { "role": "secondary","displayName": "Azure Bright",   "canonical": "oklch(0.72 0.16 232)",   "tonalRamp": ["#1e3a5f","#1d4ed8","#2563eb","#3b82f6","#60a5fa","#93c5fd","#bfdbfe","#eff6ff"] },
+      "azure-core":    { "role": "secondary","displayName": "Azure Core",     "canonical": "oklch(0.62 0.21 232)",   "tonalRamp": ["#1e3a5f","#1d4ed8","#2563eb","#3b82f6","#60a5fa","#93c5fd","#bfdbfe","#eff6ff"] },
+      "violet-light":  { "role": "primary",  "displayName": "Violet Light",   "canonical": "oklch(0.70 0.168 293)", "tonalRamp": ["#2e1065","#4c1d95","#5b21b6","#6d28d9","#7c3aed","#8b5cf6","#a78bfa","#c4b5fd"] },
+      "violet-core":   { "role": "primary",  "displayName": "Violet Core",    "canonical": "oklch(0.497 0.248 293)","tonalRamp": ["#2e1065","#4c1d95","#5b21b6","#6d28d9","#7c3aed","#8b5cf6","#a78bfa","#c4b5fd"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1 only. Two-line split; first line white, second line accent. Tight leading, negative tracking." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles. Left-aligned in content sections." },
+      "title":    { "displayName": "Title", "purpose": "Card headings, experience role names, AI tool names." },
+      "body":     { "displayName": "Body", "purpose": "All paragraph copy, card descriptions. 65-75ch line length cap." },
+      "label":    { "displayName": "Label / Mono", "purpose": "Section eyebrows, data-label dt elements, badge text, chip text. Monospaced for precision signal." }
+    },
+    "shadows": [
+      { "name": "card-hover-glow", "value": "0 20px 25px -5px rgba(139,92,246,0.05), 0 8px 10px -6px rgba(139,92,246,0.05)", "purpose": "Trace violet glow on card hover. Signals interactivity without lifting." },
+      { "name": "cta-resting",     "value": "0 10px 15px -3px rgba(139,92,246,0.25), 0 4px 6px -4px rgba(139,92,246,0.25)", "purpose": "CTA button resting shadow. Pairs with -translate-y-0.5 on hover." },
+      { "name": "cta-hover",       "value": "0 20px 25px -5px rgba(139,92,246,0.45), 0 8px 10px -6px rgba(139,92,246,0.45)", "purpose": "CTA button hover shadow. Grows to reinforce lift." },
+      { "name": "logo-glow",       "value": "0 4px 6px -1px rgba(139,92,246,0.30)", "purpose": "Navbar CS badge. Brand anchor identifier." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo",    "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Reveal animations, nav underline expansion, card hovers. All exit transitions." },
+      { "name": "duration-fast",    "value": "200ms", "purpose": "Color-only transitions (text color, border color). Hover feedback." },
+      { "name": "duration-standard","value": "300ms", "purpose": "Transforms, shadows, complex hover states." },
+      { "name": "duration-reveal",  "value": "800ms", "purpose": "Scroll-reveal: opacity + translateY. Uses ease-out-expo." }
+    ],
+    "breakpoints": [
+      { "name": "sm",  "value": "640px",  "notes": "Two-column spec-sheet, hero stacks on smaller" },
+      { "name": "md",  "value": "768px",  "notes": "Primary grid breakpoint: 2-col timeline, 2-col data table" },
+      { "name": "lg",  "value": "1024px", "notes": "3-col project cards" },
+      { "name": "xl",  "value": "1280px", "notes": "Max container (max-w-6xl = 1152px)" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA. Pill shape, azure-to-violet gradient, lifts on hover.",
+      "html": "<button class=\"ds-btn-primary\">Ver proyectos <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M9 5l7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; border-radius: 9999px; background: linear-gradient(to right, #3b82f6, #8b5cf6); padding: 12px 24px; font-size: 0.875rem; font-weight: 600; color: #e2e8f0; border: none; cursor: pointer; box-shadow: 0 10px 15px -3px rgba(139,92,246,0.25); transition: box-shadow 300ms cubic-bezier(0.22,1,0.36,1), transform 300ms cubic-bezier(0.22,1,0.36,1); font-family: inherit; } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 20px 25px -5px rgba(139,92,246,0.45); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px #0a0a0f, 0 0 0 4px #8b5cf6; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action. Transparent with subtle border.",
+      "html": "<button class=\"ds-btn-ghost\">Ver más</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; border-radius: 9999px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); padding: 12px 24px; font-size: 0.875rem; font-weight: 500; color: #cbd5e1; cursor: pointer; transition: border-color 300ms, background 300ms, color 200ms; font-family: inherit; } .ds-btn-ghost:hover { border-color: rgba(255,255,255,0.30); background: rgba(255,255,255,0.10); color: #e2e8f0; } .ds-btn-ghost:focus-visible { outline: none; box-shadow: 0 0 0 2px #0a0a0f, 0 0 0 4px #8b5cf6; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Content container. Solid dark panel, tonal layering for depth.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Proyecto Ejemplo</h3><p class=\"ds-card-body\">Descripción del proyecto y las tecnologías involucradas.</p></div>",
+      "css": ".ds-card { position: relative; border-radius: 1rem; border: 1px solid rgba(255,255,255,0.10); background: rgba(22,24,31,0.75); padding: 28px; transition: border-color 300ms, background 300ms, box-shadow 300ms; } .ds-card:hover { border-color: rgba(255,255,255,0.20); background: rgba(22,24,31,0.90); box-shadow: 0 20px 25px -5px rgba(139,92,246,0.05); } .ds-card-title { font-family: \"Space Grotesk\", system-ui, sans-serif; font-size: 1.25rem; font-weight: 600; color: #e2e8f0; margin: 0 0 8px; letter-spacing: -0.01em; } .ds-card-body { font-family: \"Inter\", system-ui, sans-serif; font-size: 0.875rem; color: #cbd5e1; line-height: 1.6; margin: 0; }"
+    },
+    {
+      "name": "Chip / Tag",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Read-only technology tag. Used in project cards and skills spec sheet.",
+      "html": "<span class=\"ds-chip\">Laravel</span>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.05); padding: 4px 12px; font-size: 0.75rem; font-family: \"JetBrains Mono\", monospace; color: #cbd5e1; transition: border-color 200ms, color 200ms; } .ds-chip:hover { border-color: rgba(255,255,255,0.20); color: #f1f5f9; }"
+    },
+    {
+      "name": "Input Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Form text input. Transparent background, violet focus treatment.",
+      "html": "<div class=\"ds-field\"><label class=\"ds-label\" for=\"ds-name\">Nombre</label><input class=\"ds-input\" id=\"ds-name\" type=\"text\" placeholder=\"Tu nombre\"></div>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 8px; } .ds-label { font-family: \"JetBrains Mono\", monospace; font-size: 0.6875rem; font-weight: 400; text-transform: uppercase; letter-spacing: 0.3em; color: #9ca3af; } .ds-input { width: 100%; border-radius: 0.5rem; border: 1px solid rgba(255,255,255,0.10); background: rgba(255,255,255,0.05); padding: 10px 16px; font-size: 0.875rem; color: #e2e8f0; font-family: \"Inter\", system-ui, sans-serif; outline: none; transition: border-color 200ms, box-shadow 200ms; } .ds-input::placeholder { color: #6b7280; } .ds-input:focus { border-color: rgba(139,92,246,0.50); box-shadow: 0 0 0 1px rgba(139,92,246,0.30); }"
+    },
+    {
+      "name": "Social Button",
+      "kind": "custom",
+      "refersTo": "social-btn",
+      "description": "44x44px circular icon button. Used in hero and footer.",
+      "html": "<a class=\"ds-social-btn\" href=\"#\" aria-label=\"GitHub\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><path d=\"M12 .5A11.5 11.5 0 000 12a11.5 11.5 0 007.86 10.94c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.27-1.67-1.27-1.67-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.02 1.75 2.68 1.24 3.34.95.1-.74.4-1.24.72-1.53-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.18-3.1-.12-.29-.51-1.47.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 015.78 0c2.21-1.49 3.17-1.18 3.17-1.18.63 1.58.24 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.7 5.4-5.27 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0024 12 11.5 11.5 0 0012 .5z\"/></svg></a>",
+      "css": ".ds-social-btn { display: inline-flex; height: 44px; width: 44px; flex-shrink: 0; align-items: center; justify-content: center; border-radius: 9999px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.05); color: #9ca3af; text-decoration: none; transition: border-color 300ms, background 300ms, color 300ms, transform 300ms; } .ds-social-btn:hover { border-color: rgba(139,92,246,0.50); background: rgba(139,92,246,0.10); color: #e2e8f0; transform: translateY(-2px); } .ds-social-btn:focus-visible { outline: none; box-shadow: 0 0 0 2px #0a0a0f, 0 0 0 4px #8b5cf6; }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Desktop navigation link with animated azure-to-violet underline on hover/focus.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">Proyectos</a><a class=\"ds-nav-link\" href=\"#\">Skills</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 32px; align-items: center; } .ds-nav-link { position: relative; padding-bottom: 2px; font-size: 0.875rem; color: #cbd5e1; text-decoration: none; transition: color 200ms; } .ds-nav-link::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 1px; background: linear-gradient(90deg, #60a5fa, #a78bfa); transition: width 300ms cubic-bezier(0.22,1,0.36,1); } .ds-nav-link:hover { color: #e2e8f0; } .ds-nav-link:hover::after, .ds-nav-link:focus-visible::after { width: 100%; } .ds-nav-link:focus-visible { outline: none; color: #e2e8f0; }"
+    },
+    {
+      "name": "Azure Badge",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Year/category badge in azure variant. Used on project cards.",
+      "html": "<span class=\"ds-badge-azure\">2024</span>",
+      "css": ".ds-badge-azure { display: inline-flex; align-items: center; border-radius: 9999px; border: 1px solid rgba(59,130,246,0.30); background: rgba(59,130,246,0.10); padding: 2px 10px; font-size: 0.6875rem; font-family: \"JetBrains Mono\", monospace; color: #60a5fa; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The First Conversation",
+    "overview": "This system is built for a specific human moment: a recruiter or founder opens the page and decides, within 60 seconds, whether to reach out. The design cannot shout. It has to feel like a person is already in the room — present, warm, no performance anxiety. The typography leads. The spacing breathes. The color exists to orient, not impress.\n\nThe current implementation (dark ink backgrounds, violet/azure accent split) is a documented baseline captured before a deliberate palette rethink. The north star and component character are the fixed points; the palette is the active variable.",
+    "keyCharacteristics": [
+      "Typographic hierarchy carries the page; color is secondary",
+      "Generous spacing at section level (128px between sections), tighter inside components",
+      "Pill-shaped interactive elements — friendly, not corporate",
+      "Cards are solid dark panels, not glass",
+      "Motion is respectful: prefers-reduced-motion guarded throughout",
+      "Keyboard-navigable with violet-500 focus rings on every interactive element"
+    ],
+    "rules": [
+      { "name": "The Earned Accent Rule", "body": "Violet and azure are used to signal meaning: links, interactive states, focus, and emphasis. Not decoration.", "section": "colors" },
+      { "name": "The Palette Warning", "body": "The current void-black + violet/azure split is the first-order reflex palette for developer portfolios. The forthcoming craft palette rethink must break this reflex.", "section": "colors" },
+      { "name": "The Label Language Rule", "body": "Monospaced uppercase labels are reserved for structural metadata only. If a text element is prose, it does not get the mono label treatment.", "section": "typography" },
+      { "name": "The Measure Rule", "body": "Body copy containers cap at max-w-2xl (672px) in single-column contexts.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Every surface is flat at rest. Shadow appears only in response to state: hover on interactive cards, focus on buttons.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use focus-visible:ring-2 focus-visible:ring-violet-500 on every interactive element",
+      "Do preserve 128px between major page sections",
+      "Do use dl/dt/dd for key/value data relationships",
+      "Do use monospaced uppercase labels only for structural metadata",
+      "Do add aspect-ratio to media containers before lazy-loaded images",
+      "Do run a scene sentence before choosing any color strategy"
+    ],
+    "donts": [
+      "Don't use background-clip: text with a gradient. Gradient text on headlines is a hard ban.",
+      "Don't build stat card grids (big number, small mono label, gradient accent). Use prose or a ruled list instead.",
+      "Don't apply backdrop-blur to card components by default. The nav menu is the only intentional blur.",
+      "Don't use the purple/blue gradient + dark background palette for new surfaces without explicitly running the category-reflex check.",
+      "Don't use Space Grotesk or Inter for new work without reviewing alternatives. Both are on the reflex-reject list.",
+      "Don't render GitHub contribution graphs, language badge grids, or star counters on any surface.",
+      "Don't use identical card grids for more than one section. Vary the structure.",
+      "Don't add empty confidence metrics like '100% Compromiso'."
+    ]
+  }
+}
