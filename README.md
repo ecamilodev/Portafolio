@@ -2,7 +2,7 @@
 
 Portafolio profesional desarrollado con **Laravel 11**, **TailwindCSS** y **Alpine.js**. Diseñado para presentar mi perfil como **Ingeniero de Sistemas / Desarrollador Backend & Full Stack**, mis estudios, experiencia, certificaciones, proyectos y herramientas de IA con las que trabajo.
 
-> Paleta: negro · grises · blanco · azul · morado. Sobrio, moderno y enfocado en el contenido.
+
 
 ---
 
